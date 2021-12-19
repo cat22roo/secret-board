@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cookies": "0.8.0",
+    "dayjs": "1.10.4",
+    "http-auth": "4.1.9",
+    "pg": "8.5.1",
+    "pg-hstore": "2.3.3",
+    "pug": "2.0.4",
+    "sequelize": "6.5.0"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

@@ -1,0 +1,30 @@
+version: '3'
+services:
+  # webサービス用のコンテナ
+  app:
+    build: .
+    tty: true
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+  # DB用のコンテナの設定
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: secret_board
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ../secret-board-db:/var/lib/postgresql/data
+  # 攻撃用のコンテナの同期設定　
+  password-challenger:
+    build: .
+    tty: true
+    volumes:
+      - ../password-challenger:/app
+    depends_on:
+      - app
