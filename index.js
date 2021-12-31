@@ -18,6 +18,7 @@ const server = http.createServer(basic.check((req,res) => {
   console.error('Client Error', e);
 });
 
+// 本番環境の時はHeroku側でprocess.env.PORTが設定されている
 const port = process.env.PORT || 8000;
 server.listen(port, () => {
   console.log(`サーバーが、ポート ${port} 番で起動しています。`);
